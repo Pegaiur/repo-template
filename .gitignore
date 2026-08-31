@@ -1,0 +1,13 @@
+# 依赖与产物
+node_modules/
+dist/
+
+# 开发脚本临时区（runs/work/cache，tooling tmp clean 管理）
+dev-temp/
+
+# 一次性脚本（tooling new 生成，不入库）
+scripts/scratch/
+
+# 测试产物
+coverage/
+test-results/
