@@ -83,4 +83,4 @@ notes 中发现的重大架构决策应升级为正式 ADR（见上「ADR 判定
    - 更新日志：执行 `node scripts/tooling.mjs run release/changelog -- --version <根版本> --apply` 追加 docs/CHANGELOG.md 版本段（与版本文件同笔提交）
    - 提交：以上内容作为一笔 `chore(release): 准备 v<根版本>` 提交，不在主分支补交发布元数据
 2. **合并发布**：在 feature 最终提交上执行 `node scripts/verify.mjs merge -- --base <主分支>`（覆盖该分支相对主分支的完整变更）→ `--no-ff` 合入主分支 → 在 merge commit 上执行 `node scripts/verify.mjs release` → 给该 merge commit 创建 `v<版本>` tag → push 主分支与 tag → 删除 feature 分支。**verify release 通过前不删除远端分支**。
-3. **部署（可选）**：按仓库自身部署流程执行，独立授权动作，与发版门禁分离（可参考原仓「部署复用门禁结果需校验 SHA/profile/profileVersion 三元组一致」的证据复用模式）。
+3. **部署（可选）**：按仓库自身部署流程执行，独立授权动作，与发版门禁分离。

@@ -1,7 +1,7 @@
 /**
  * 门禁命令清单配置（verify 引擎的唯一适配层）
  *
- * 设计（源自 Concliude ADR-100「单入口 + profile」模式）：
+ * 设计（「单入口 + profile」模式）：
  *   - scripts/verify.mjs 是门禁执行引擎，只依赖本文件导出的清单，不含任何具体命令；
  *   - 所有调用方（AGENTS.md、skills、CI）只引用 `node scripts/verify.mjs <profile>`，
  *     不复制底层命令——换技术栈只改本文件；

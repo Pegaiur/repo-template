@@ -1,6 +1,6 @@
 # 过程管理 repo 模板
 
-从 Concliude 仓库提炼的**泛语言/包管理无关**过程管理模板：文档生命周期、分支合并脚本门槛、发版 auto bump、Agent 工作流技能与脚本基建。脚本引擎只用 Node 内置模块（零 npm 依赖），只依赖 git 与可执行命令；目标仓库可以是任何语言/技术栈。
+**泛语言/包管理无关**的过程管理模板：文档生命周期、分支合并脚本门槛、发版 auto bump、Agent 工作流技能与脚本基建。脚本引擎只用 Node 内置模块（零 npm 依赖），只依赖 git 与可执行命令；目标仓库可以是任何语言/技术栈。
 
 ## 目录结构
 
@@ -87,21 +87,3 @@ node scripts/tooling.mjs new <domain/name>          # 一次性脚本 → 二次
 - **Changelog（同源双视图）**：release/changelog 与版本推算同区间（tag..HEAD）聚合提交事实——人类版分类分节带短哈希、`--agent` 限行紧凑视图供发版后新任务首读；`--apply` 追加 docs/CHANGELOG.md（只累积、同笔 chore(release) 提交、同版本段拒绝重复）；非门禁，不规范提交归「其他」+ warning。
 - **两阶段发版**：feature 分支收束发布元数据（归档 + inbox 清理 + ADR 状态 + 版本写入，一笔 `chore(release)`）→ `verify merge --base` → `--no-ff` 合入 → merge commit 上 `verify release` → tag（不可移动）→ 删分支（verify release 通过前不删远端分支）。
 - **开放技能格式**：`skills/<name>/SKILL.md` + frontmatter（name/description 含触发词与负向边界）+ S1-S5 机械校验（含禁宿主专属措辞）；机械事实委托脚本，技能只保留时机、判断与确认。
-
-## 未收录的进阶模式（可从原仓 Concliude 参考）
-
-| 模式 | 原仓位置 | 说明 |
-|------|----------|------|
-| 视觉基线记录校验 | `scripts/verify.mjs` visual-record 子命令 | 截图基线变更必须伴随 spec/notes 说明记录（fail-closed） |
-| PACKAGE.md 路径校验与 spec↔rule 双向引用（原仓编号 D3/D6，勿与模板自身 D 编号混淆） | `scripts/doc-check.mjs` | monorepo 包级约定与跨包契约门禁 |
-| 部署复用门禁证据 | `scripts/prod.mjs` | 校验 SHA/profile/profileVersion 三元组一致后才允许部署 |
-| Agent 收尾守卫 | `scripts/check-agent-guard.ps1` | G1 孤儿脚本（提示）/ G2 临时残留（阻塞+白名单）/ G3 git 编码配置（Windows/pwsh） |
-| 测试卫生门禁 | `scripts/test-hygiene.mjs` | 测试共享状态隔离扫描 + 正反例夹具自测（绑定 Vitest） |
-| 数据库操作规则 | `docs/rules/database-operations.md` | 单例连接、迁移仅前滚、事务包裹（SQLite 特定） |
-
-## 设计来源
-
-- 门禁 profile / 单一事实源：Concliude ADR-100（merge-release-gate-single-entry）
-- 脚本生命周期 / 最小工具哲学：Concliude ADR-099（development-tooling-and-workspace）
-- 逐包独立 semver：Concliude ADR-010（independent-semver）
-- 文档生命周期 / plan 纯度 / notes 五段：Concliude `docs/rules/document-lifecycle.md`

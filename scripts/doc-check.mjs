@@ -14,7 +14,7 @@
  *   S:  skills/ 技能结构（目录名 / YAML name/description / 名称一致性 / 相对引用 / 禁用宿主措辞）
  *
  * 扩展点：monorepo 子包约定文档校验（如 PACKAGE.md 路径）、spec↔rule 双向引用等，
- * 可按仓库需要新增 D 检查（参考原仓 Concliude 的 D3/D6 设计）。
+ * 可按仓库需要新增 D 检查。
  *
  * 退出码：0 = 全绿，1 = 有错误
  */

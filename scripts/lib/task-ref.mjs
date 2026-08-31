@@ -1,5 +1,5 @@
 /**
- * 任务引用规范化（tasks 目录发现唯一注册事实，domain/name 轻校验；设计源自 Concliude ADR-099）
+ * 任务引用规范化（tasks 目录发现唯一注册事实，domain/name 轻校验）
  *
  * tooling.mjs 与 doc-check D4（lib/ref-check.mjs）共用；tooling 以 re-export 保持 API 稳定，
  * ref-check 直接从 lib 导入，避免 lib → 根级 CLI 层次倒挂。

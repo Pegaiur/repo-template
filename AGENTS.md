@@ -28,7 +28,7 @@
 6. **无调试与死代码残留**：提交前清理 `console.log`/`debugger`、注释掉的代码、未使用的 import/变量/函数
 
 <!-- 【可选-平台】Windows 专属仓库追加：
-7. **安全与操作**：禁止 `rm -rf`/`Remove-Item -Recurse -Force` 等销毁性命令；批量修改超 3 个文件前先展示变更摘要；`git add` 前确认暂存区仅含目标文件；临时文件写仓库根 `dev-temp/`（开发脚本临时区）并任务结束经 `node scripts/tooling.mjs tmp clean` 清理；任务完成前执行收尾守卫脚本（如 check-agent-guard）
+7. **安全与操作**：禁止 `rm -rf`/`Remove-Item -Recurse -Force` 等销毁性命令；批量修改超 3 个文件前先展示变更摘要；`git add` 前确认暂存区仅含目标文件；临时文件写仓库根 `dev-temp/`（开发脚本临时区）并任务结束经 `node scripts/tooling.mjs tmp clean` 清理；任务完成前执行收尾守卫脚本
    非 Windows 仓库可将守卫脚本替换为等价 shell 脚本或省略本条。
 -->
 
